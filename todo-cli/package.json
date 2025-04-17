@@ -8,5 +8,8 @@
   "keywords": [],
   "author": "Olek Pogorilyi <olek.pogorilyi@gmail.com>",
   "license": "ISC",
-  "description": "A command-line to-do list app built with Node.js"
+  "description": "A command-line to-do list app built with Node.js",
+  "dependencies": {
+    "prompt-sync": "^4.2.0"
+  }
 }
