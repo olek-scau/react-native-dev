@@ -1,0 +1,12 @@
+{
+  "name": "todo-cli",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Olek Pogorilyi <olek.pogorilyi@gmail.com>",
+  "license": "ISC",
+  "description": "A command-line to-do list app built with Node.js"
+}
