@@ -3,6 +3,7 @@
   "type": "module",
   "version": "1.0.0",
   "main": "index.js",
+  "start": "node index.js",
   "bin": {
     "todo": "./index.js"
   },
