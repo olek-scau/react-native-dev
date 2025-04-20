@@ -20,11 +20,25 @@ export async function saveTasks(tasks) {
 }
 
 export async function addTask(description) {
-  const tasks = await loadTasks();
-  tasks.push({ id: tasks.length + 1, description, done: false });
-  await saveTasks(tasks);
-  return tasks;
-}
+    // Input validation
+    if (typeof description !== 'string') {
+      throw new Error('Task description must be a string.');
+    }
+    
+    const trimmedDescription = description.trim();
+    if (trimmedDescription.length === 0) {
+      throw new Error('Task description cannot be empty or whitespace-only.');
+    }
+    
+    if (trimmedDescription.length > 100) {
+      throw new Error('Task description cannot exceed 100 characters.');
+    }
+  
+    const tasks = await loadTasks();
+    tasks.push({ id: tasks.length + 1, description: trimmedDescription, done: false });
+    await saveTasks(tasks);
+    return tasks;
+  }
 
 export async function markTaskDone(id) {
     const tasks = await loadTasks();
