@@ -1,76 +1,77 @@
-// Import required modules
-const fs = require('fs');
-const prompt = require('prompt-sync')();
+#!/usr/bin/env node
 
-// Load tasks from tasks.json, or initialize an empty array if the file doesn't exist
-let tasks = [];
-try {
-    const data = fs.readFileSync('tasks.json', 'utf8');
-    tasks = JSON.parse(data);
-} catch (error) {
-    tasks = [];
-    saveTasks(); // Create tasks.json if it doesn't exist
-}
+import { Command } from 'commander';
+import inquirer from 'inquirer';
+import chalk from 'chalk';
+import { addTask, loadTasks, markTaskDone, removeTask } from './tasks.js';
 
-// Function to save tasks to tasks.json
-function saveTasks() {
-    fs.writeFileSync('tasks.json', JSON.stringify(tasks, null, 2));
-}
+const program = new Command();
 
-// Function to add a task
-function addTask() {
-    const task = prompt('Enter a task: ');
-    if (task.trim() === '') {
-        console.log('Task cannot be empty!');
+program
+  .command('add')
+  .description('Add a new task')
+  .action(async () => {
+    const answers = await inquirer.prompt([
+      {
+        type: 'input',
+        name: 'task',
+        message: 'Enter the task description:',
+      },
+    ]);
+    const tasks = await addTask(answers.task);
+    const newTask = tasks[tasks.length - 1];
+    console.log(chalk.green(`Task ${newTask.id}. ${newTask.description} added!`));
+  });
+
+program
+  .command('list')
+  .description('List all tasks')
+  .action(async () => {
+    try {
+      const tasks = await loadTasks();
+      if (tasks.length === 0) {
+        console.log(chalk.yellow('No tasks found.'));
         return;
+      }
+      tasks.forEach((task) => {
+        const status = task.done ? chalk.green('✔') : chalk.red('✘');
+        console.log(`${status} ${task.id}. ${task.description}`);
+      });
+    } catch (error) {
+      console.log(chalk.red(`Error listing tasks: ${error.message}`));
     }
-    tasks.push(task);
-    saveTasks();
-    console.log(`Added: ${task}`);
-}
+  });
 
-// Function to remove a task
-function removeTask() {
-    listTasks();
-    const index = prompt('Enter the task number to remove: ');
-    const taskIndex = parseInt(index) - 1;
-    if (isNaN(taskIndex) || taskIndex < 0 || taskIndex >= tasks.length) {
-        console.log('Invalid task number!');
-        return;
+program
+  .command('done <id>')
+  .description('Mark a task as done')
+  .action(async (id) => {
+    try {
+      const taskId = parseInt(id);
+      if (isNaN(taskId)) {
+        throw new Error('Task ID must be a number.');
+      }
+      await markTaskDone(taskId); // Removed unused 'tasks' variable
+      console.log(chalk.green(`Task ${taskId} marked as done!`));
+    } catch (error) {
+      console.log(chalk.red(error.message));
     }
-    const removedTask = tasks.splice(taskIndex, 1)[0];
-    saveTasks();
-    console.log(`Removed: ${removedTask}`);
-}
+  });
 
-// Function to list all tasks
-function listTasks() {
-    if (tasks.length === 0) {
-        console.log('No tasks found.');
-        return;
+program
+  .command('remove <id>')
+  .description('Remove a task by ID')
+  .action(async (id) => {
+    try {
+      const taskId = parseInt(id);
+      if (isNaN(taskId)) {
+        throw new Error('Task ID must be a number.');
+      }
+      await removeTask(taskId); // Removed unused 'tasks' variable
+      console.log(chalk.green(`Task ${taskId} removed!`));
+    } catch (error) {
+      console.log(chalk.red(error.message));
     }
-    console.log('Tasks:');
-    tasks.forEach((task, index) => {
-        console.log(`${index + 1}. ${task}`);
-    });
-}
+  });
 
-// Main menu loop
-console.log('Welcome to the To-Do CLI!');
-while (true) {
-    console.log('\n1. Add task\n2. Remove task\n3. List tasks\n4. Exit');
-    const choice = prompt('Choose an option (1-4): ');
-    
-    if (choice === '1') {
-        addTask();
-    } else if (choice === '2') {
-        removeTask();
-    } else if (choice === '3') {
-        listTasks();
-    } else if (choice === '4') {
-        console.log('Goodbye!');
-        break;
-    } else {
-        console.log('Invalid choice. Please enter 1, 2, 3, or 4.');
-    }
-}
+program.parse(process.argv);

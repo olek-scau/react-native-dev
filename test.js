@@ -1,1 +1,0 @@
-console.log("Starting my React Native journey!");

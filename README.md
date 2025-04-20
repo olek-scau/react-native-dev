@@ -1,13 +1,42 @@
-# React Native Learning
+# Todo CLI
 
-A collection of projects built while transitioning from Python to React Native.
+A simple command-line todo app built with Node.js.
 
-## Projects
-- **Test File**: A simple JavaScript file to test Git setup (`test.js`).
+## Installation
 
-## Setup
-- Clone the repo: `git clone git@github.com:yourname-dev/react-native-learning.git`
-- Install dependencies (for future projects): `npm install`
+1. Clone the repository:
+   ```bash
+   git clone <your-repo-url>
+   ```
 
-## Screenshot
-![To-Do CLI Screenshot](./screenshot.png)
+2. Navigate to the project directory:
+   ```bash
+   cd todo-cli
+   ```
+
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+4. Link the CLI:
+   ```bash
+   npm link
+   ```
+
+## Usage
+
+- Add a task:
+   ```bash
+   todo add
+   ```
+
+- List all tasks:
+   ```bash
+   todo list
+   ```
+
+- Mark a task as done:
+   ```bash
+   todo done <id>
+   ```
