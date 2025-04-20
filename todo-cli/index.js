@@ -18,9 +18,13 @@ program
         message: 'Enter the task description:',
       },
     ]);
-    const tasks = await addTask(answers.task);
-    const newTask = tasks[tasks.length - 1];
-    console.log(chalk.green(`Task ${newTask.id}. ${newTask.description} added!`));
+    try {
+      const tasks = await addTask(answers.task);
+      const newTask = tasks[tasks.length - 1];
+      console.log(chalk.green(`Task ${newTask.id}. ${newTask.description} added!`));
+    } catch (error) {
+      console.log(chalk.red(`Error adding task: ${error.message}`));
+    }
   });
 
 program
