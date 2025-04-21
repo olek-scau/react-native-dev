@@ -1,17 +1,20 @@
 # To-Do CLI
 
-A command-line to-do list application built with Node.js.
+A command-line to-do list app built with Node.js, Commander, Inquirer, and Chalk.
+
+![Tests](https://github.com/olek-scau/react-native-dev/todo-cli/workflows/Run%20Tests/badge.svg)
 
 ## Features
 - Add tasks with user input.
-- Remove tasks by number.
+- Remove tasks by ID.
 - List all tasks.
+- Mark tasks as done.
 - Persist tasks in `tasks.json`.
 
 ## Setup
 1. Clone the repository:
    ```bash
-   git clone git@github.com:yourname-dev/react-native-learning.git
+   git clone git@github.com:olek-scau/react-native-dev.git
    ```
 
 2. Navigate to the project:
@@ -24,7 +27,53 @@ A command-line to-do list application built with Node.js.
    npm install
    ```
 
-4. Run the app:
+4. Link the CLI:
+   ```bash
+   npm link
+   ```
+
+5. Run the app:
    ```bash
    node index.js
+
+## Usage
+
+- Add a task:
+   ```bash
+   node index.js add
+   ```
+   or
+   ```bash
+   todo add
+   ```
+
+- List all tasks:
+   ```bash
+   todo list
+   ```
+
+- Mark a task as done:
+   ```bash
+   todo done <id>
+   ```
+
+- Remove a task:
+   ```bash
+   todo remove <id>
+   ```
+
+- Show help:
+   ```bash
+   todo --help
+   ```
+
+## Testing
+
+The project uses Jest with ESM support for unit testing. Run tests with:
+   ```bash
+   npm test
+   ```
    
+## Screenshots
+![Adding a task](screenshots/add-task.png)
+![Listing tasks](screenshots/list-tasks.png)
