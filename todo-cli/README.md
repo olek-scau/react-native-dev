@@ -2,7 +2,7 @@
 
 A command-line to-do list app built with Node.js, Commander, Inquirer, and Chalk.
 
-![Tests](https://github.com/olek-scau/react-native-dev/todo-cli/workflows/Run%20Tests/badge.svg)
+![Tests](https://github.com/olek-scau/react-native-dev/workflows/Run%20Tests/badge.svg)
 
 ## Features
 - Add tasks with user input.
