@@ -1,6 +1,6 @@
-# Todo CLI
+# To-Do List CLI
 
-A simple command-line todo app built with Node.js.
+A command-line to-do list app built with Node.js, Commander, Inquirer, and Chalk.
 
 ## Installation
 
@@ -28,6 +28,10 @@ A simple command-line todo app built with Node.js.
 
 - Add a task:
    ```bash
+   node index.js add
+   ```
+   or
+   ```bash
    todo add
    ```
 
@@ -40,3 +44,21 @@ A simple command-line todo app built with Node.js.
    ```bash
    todo done <id>
    ```
+
+- Remove a task:
+   ```bash
+   todo remove <id>
+   ```
+
+- Show help:
+   ```bash
+   todo --help
+   ```
+
+## Testing
+
+Run tests with:
+   ```bash
+   npm test
+   ```
+
