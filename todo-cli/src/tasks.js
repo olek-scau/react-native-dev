@@ -1,6 +1,16 @@
 import fs from 'fs/promises';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
-const TASKS_FILE = './src/tasks.json';
+// Get the directory of the current module
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// Define the path to tasks.json relative to this file
+const TASKS_FILE = path.join(__dirname, 'tasks.json');
+
+// Export TASKS_FILE so tests can use it
+export { TASKS_FILE };
 
 export async function loadTasks() {
   try {
@@ -11,7 +21,7 @@ export async function loadTasks() {
     // File doesn't exist, return empty array
     return [];
     }
-    throw err; // Re-throw other errors (e.g., JSON parsing issues)
+    throw err; // Re-throw other errors
   }
 }
 

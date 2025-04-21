@@ -1,9 +1,9 @@
 import fs from 'fs/promises';
-import { addTask, loadTasks, markTaskDone, removeTask } from '../src/tasks.js';
+import { addTask, loadTasks, markTaskDone, removeTask, TASKS_FILE } from '../src/tasks.js';
 
 describe('Todo CLI Logic', () => {
   beforeEach(async () => {
-    await fs.writeFile('./tasks.json', JSON.stringify([]));
+    await fs.writeFile(TASKS_FILE, JSON.stringify([]));
   });
 
   test('should add a task with valid description', async () => {
