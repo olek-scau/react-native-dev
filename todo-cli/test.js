@@ -1,5 +1,5 @@
 import fs from 'fs/promises';
-import { addTask, loadTasks, markTaskDone } from './tasks.js';
+import { addTask, loadTasks, markTaskDone, removeTask } from './tasks.js';
 
 describe('Todo CLI Logic', () => {
   beforeEach(async () => {
@@ -55,5 +55,16 @@ describe('Todo CLI Logic', () => {
     const tasks = await loadTasks();
     expect(tasks).toHaveLength(1);
     expect(tasks[0].description).toBe('Test task');
+  });
+
+  test('should remove a task by ID', async () => {
+    await addTask('Test task');
+    await removeTask(1);
+    const tasks = await loadTasks();
+    expect(tasks).toHaveLength(0);
+  });
+  
+  test('should throw error for non-existent task ID in remove', async () => {
+    await expect(removeTask(999)).rejects.toThrow('Task with ID 999 not found.');
   });
 });
