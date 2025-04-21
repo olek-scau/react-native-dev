@@ -1,6 +1,6 @@
 import fs from 'fs/promises';
 
-const TASKS_FILE = './tasks.json';
+const TASKS_FILE = './src/tasks.json';
 
 export async function loadTasks() {
   try {
