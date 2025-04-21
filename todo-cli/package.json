@@ -17,8 +17,7 @@
   "dependencies": {
     "chalk": "^5.4.1",
     "commander": "^13.1.0",
-    "inquirer": "^12.5.2",
-    "prompt-sync": "^4.2.0"
+    "inquirer": "^12.5.2"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.26.9",
