@@ -8,6 +8,11 @@ import { addTask, loadTasks, markTaskDone, removeTask } from './tasks.js';
 const program = new Command();
 
 program
+  .name('todo')
+  .description('A simple command-line to-do list application')
+  .version('1.0.0');
+
+program
   .command('add')
   .description('Add a new task')
   .action(async () => {
@@ -55,7 +60,7 @@ program
       if (isNaN(taskId)) {
         throw new Error('Task ID must be a number.');
       }
-      await markTaskDone(taskId); // Removed unused 'tasks' variable
+      await markTaskDone(taskId);
       console.log(chalk.green(`Task ${taskId} marked as done!`));
     } catch (error) {
       console.log(chalk.red(error.message));
@@ -71,11 +76,27 @@ program
       if (isNaN(taskId)) {
         throw new Error('Task ID must be a number.');
       }
-      await removeTask(taskId); // Removed unused 'tasks' variable
+      await removeTask(taskId);
       console.log(chalk.green(`Task ${taskId} removed!`));
     } catch (error) {
       console.log(chalk.red(error.message));
     }
   });
 
+// Handle unknown commands or no arguments
+program.on('command:*', () => {
+  console.error(chalk.red('Invalid command. See "todo --help" for available commands.'));
+  process.exit(1);
+});
+
+// Parse arguments, with error handling
+try {
   program.parse(process.argv, { from: 'user' });
+  // If no arguments provided, show help
+  if (!process.argv.slice(2).length) {
+    program.outputHelp();
+  }
+} catch (error) {
+  console.error(chalk.red(`Error: ${error.message}`));
+  process.exit(1);
+}
