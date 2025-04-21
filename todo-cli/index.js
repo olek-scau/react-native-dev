@@ -83,15 +83,19 @@ program
     }
   });
 
+console.log('Registered commands:', program.commands.map(cmd => cmd.name()));
+
 // Handle unknown commands or no arguments
 program.on('command:*', () => {
   console.error(chalk.red('Invalid command. See "todo --help" for available commands.'));
   process.exit(1);
 });
 
+console.log('Arguments:', process.argv);
+
 // Parse arguments, with error handling
 try {
-  program.parse(process.argv, { from: 'user' });
+  program.parse(process.argv);
   // If no arguments provided, show help
   if (!process.argv.slice(2).length) {
     program.outputHelp();
