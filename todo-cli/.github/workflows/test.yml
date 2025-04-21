@@ -7,6 +7,9 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: todo-cli
     steps:
       - uses: actions/checkout@v3
       - name: Set up Node.js
@@ -18,7 +21,8 @@ jobs:
       - name: Debug working directory
         run: pwd
       - name: Debug tasks.json path
-        run: node -e "const path = require('path'); console.log(path.join(process.cwd(), 'src/tasks.json'))"
+        run: node -e "const path = require('path'); const __dirname = path.dirname(require('url').fileURLToPath(import.meta.url)); console.log(path.join(__dirname, '../src/tasks.json'))"
+        working-directory: todo-cli
       - name: Check tasks.json exists
         run: ls src/tasks.json
       - name: Run tests
