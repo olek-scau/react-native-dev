@@ -57,7 +57,7 @@ A command-line to-do list app built with Node.js, Commander, Inquirer, and Chalk
 
 ## Testing
 
-Run tests with:
+The project uses Jest with ESM support for unit testing. Run tests with:
    ```bash
    npm test
    ```
