@@ -8,7 +8,7 @@
     "todo": "./src/index.js"
   },
   "scripts": {
-    "test": "jest"
+    "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest"
   },
   "keywords": [],
   "author": "Olek Pogorilyi <olek.pogorilyi@gmail.com>",
@@ -23,6 +23,7 @@
     "@babel/preset-env": "^7.26.9",
     "@eslint/js": "^9.24.0",
     "babel-jest": "^29.7.0",
+    "cross-env": "^7.0.3",
     "eslint": "^9.25.0",
     "eslint-plugin-jsonc": "^2.20.0",
     "globals": "^16.0.0",
