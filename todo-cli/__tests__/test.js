@@ -1,5 +1,5 @@
 import fs from 'fs/promises';
-import { addTask, loadTasks, markTaskDone, removeTask } from './tasks.js';
+import { addTask, loadTasks, markTaskDone, removeTask } from '../tasks.js';
 
 describe('Todo CLI Logic', () => {
   beforeEach(async () => {
