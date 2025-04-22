@@ -26,7 +26,7 @@ This repository is a collection of projects demonstrating my skills in JavaScrip
 To explore or run the projects:
 1. Clone the repository:
    ```bash
-   git clone https://github.com/<username>/react-native-dev.git
+   git clone https://github.com/olek-scau/react-native-dev.git
    ```
 
 2. Navigate to a project folder:
