@@ -32,6 +32,7 @@ jobs:
 
       - name: Debug tasks.json path
         run: ls -la src/
-        
+
       - name: Run tests
         run: npm test
+        
