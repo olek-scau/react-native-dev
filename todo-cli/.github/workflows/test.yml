@@ -4,6 +4,7 @@ on:
     branches: [main]
   pull_request:
     branches: [main]
+    
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -11,18 +12,26 @@ jobs:
       run:
         working-directory: todo-cli
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
       - name: Set up Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: '22'
+          cache: 'npm'
+          cache-dependency-path: todo-cli/package.json
+
       - name: Install dependencies
         run: npm ci
+
       - name: Debug working directory
         run: pwd
+
       - name: Debug tasks.json path
-        run: node -e "const path = require('path'); const __dirname = path.dirname(require('url').fileURLToPath('file://' + __filename)); console.log(path.join(__dirname, '../src/tasks.json'))"
-      - name: Check tasks.json exists
-        run: ls src/tasks.json
+        run: ls -la src/
+        
       - name: Run tests
         run: npm test
