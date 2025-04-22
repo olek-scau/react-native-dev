@@ -76,5 +76,9 @@ The project uses Jest with ESM support for unit testing. Run tests with:
    ```
    
 ## Screenshots
+
+### Adding a Task
 ![Adding a task](screenshots/add-task.png)
+
+### Listing Tasks
 ![Listing tasks](screenshots/list-tasks.png)
