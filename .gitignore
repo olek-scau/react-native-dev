@@ -21,6 +21,7 @@ lib-cov
 
 # Coverage directory used by tools like istanbul
 coverage
+coverage/
 *.lcov
 
 # nyc test coverage
@@ -134,3 +135,12 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# React Native / Expo
+.expo/
+dist/
+build/
+
+# Misc
+.DS_Store
+*.env
