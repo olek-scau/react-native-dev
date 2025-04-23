@@ -1,7 +1,7 @@
 {
   "name": "todo-cli",
   "type": "module",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "src/index.js",
   "start": "node index.js",
   "bin": {
@@ -12,7 +12,7 @@
   },
   "keywords": [],
   "author": "Olek Pogorilyi <olek.pogorilyi@gmail.com>",
-  "license": "ISC",
+  "license": "MIT",
   "description": "A command-line to-do list app built with Node.js",
   "dependencies": {
     "chalk": "^5.4.1",
