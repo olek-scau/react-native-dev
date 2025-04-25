@@ -1,4 +1,4 @@
-import { fetchPosts, fetchUsers } from '../fetch.js';
+import { fetchPosts, fetchUsers } from '../src/fetch.js';
 
 describe('API Fetcher', () => {
   test('fetches posts successfully', async () => {
