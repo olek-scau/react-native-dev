@@ -1,20 +1,21 @@
 {
   "name": "api-fetcher",
-  "version": "1.0.0",
   "type": "module",
-  "main": "index.js",
+  "version": "1.0.0",
+  "main": "src/index.js",
   "scripts": {
+    "start": "node src/index.js",
     "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
+  "author": "Olek Pogorilyi <olek.pogorilyi@gmail.com>",
+  "license": "MIT",
+  "description": "A Node.js script that fetches and displays posts and users from the JSONPlaceholder API",
   "dependencies": {
-    "jest": "^29.7.0",
     "node-fetch": "^3.3.2"
   },
   "devDependencies": {
+    "jest": "^29.7.0",
     "cross-env": "^7.0.3",
     "eslint": "^9.25.1"
   }
