@@ -1,0 +1,12 @@
+[
+  {
+    "id": 1,
+    "description": "Wash Dishes",
+    "done": false
+  },
+  {
+    "id": 2,
+    "description": "Buy groceries",
+    "done": false
+  }
+]
