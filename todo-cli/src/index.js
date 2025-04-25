@@ -10,7 +10,7 @@ const program = new Command();
 program
   .name('todo')
   .description('A simple command-line to-do list application')
-  .version('1.0.0');
+  .version('1.1.0');
 
 program
   .command('add')
