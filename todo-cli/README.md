@@ -84,4 +84,4 @@ The project uses Jest with ESM support for unit testing. Run tests with:
 ![Listing tasks](screenshots/list-tasks.png)
 
 ## Version History
-See [CHANGELOG.md](./todo-cli/CHANGELOG.md) for detailed release notes.
+See [CHANGELOG.md](./CHANGELOG.md) for detailed release notes.
