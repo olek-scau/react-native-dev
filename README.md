@@ -44,10 +44,8 @@ cd react-native-dev/<project-folder>
 - **Setup**: [README.md](api-fetcher/README.md)
 - **Data Storage**: No persistent storage; optional sample-posts.json committed to GitHub for testing.
 
-*More projects (e.g., React Native note-taking app, e-commerce app) will be added as I progress through my learning path.*
-
 ## License
-MIT License
+See [MIT License](./LICENSE)
 
 ## Contact
 - **GitHub**: <https://github.com/olek-scau>
