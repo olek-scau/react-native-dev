@@ -44,6 +44,19 @@ cd react-native-dev/<project-folder>
 - **Setup**: [README.md](api-fetcher/README.md)
 - **Data Storage**: No persistent storage; optional sample-posts.json committed to GitHub for testing.
 
+### 📝 Note-Taking App
+- **Description**: A cross-platform mobile app built with React Native and Expo, allowing users to create, view, and manage notes with a simple and intuitive interface.
+- **Features**:
+- View a list of notes using FlatList.
+- Add new notes with a dedicated input screen.
+- Persistent storage of notes on the device.
+- Navigation between screens using React Navigation.
+- **Tech Stack**: React Native, Expo, JavaScript (ES6+), React Navigation, AsyncStorage.
+- **CI Status**: CI/CD not yet implemented (to be added later).
+- **Location**: [note-taker/](note-taker/)
+- **Setup**: [README.md](note-taker/README.md)
+- **Data Storage**: Notes are stored locally on the device using AsyncStorage; sample notes committed to GitHub in [sampleNotes.json](note-taker/src/data/sampleNotes.json) for testing.
+
 ## License
 See [MIT License](./LICENSE)
 
